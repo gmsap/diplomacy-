@@ -4,15 +4,27 @@
 
 using namespace std;  
 
-struct tile
+class tile()
 {
-	char id[3] = {' ',' ',' '};
-	bool hasSupplyCenter = false;
-	char unitType = ' ';
-	char unitOwner = ' ';
+	bool hasSupplyCenter;
+	bool holdsFleet;
+	bool holdsArmy;
+	char unitType;			//'A' is army, 'F' is fleet, ' ' is empty
+	char unitOwner;			//character for the country
+	tile* neighbors[];
+
+	tile() 
+	{
+		hasSupplyCenter = false;
+		holdsFleet = true;
+		holdsArmy = true;
+		unitType = ' ';			//'A' is army, 'F' is fleet, ' ' is empty
+		unitOwner = ' ';			//character for the country
+		neighbors = tile*[0];
+	}
 };
 
-struct board
+class board()
 {
 /*______________________________________________________________________________________________________________________________________________________________________________________________________________
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\    \| /_____~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~___~|~_~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~____/                |                 |                 |                 |
@@ -63,7 +75,7 @@ struct board
 |~~____/            Naf                   /      A:A Tun   *  |~~~~~~~~~~~\___/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/____/~~~~~~~~~~~~~~~~~~~A:A~EAS~~~~~~|       |  Fall 1901      |                 |                 |
 |_/______________________________________/_____________________\______________________________________________|___________________________________|_______|_________________|_________________|_________________|
 19 sea tiles + 56 land tiles (34 have supply centers) */
-
+	
 	tile NAO; //water
 	tile NWG;
 	tile BAR;
@@ -138,6 +150,83 @@ struct board
 	tile Pru;
 	tile Ber;
 	tile Kie; //germany
+
+	board(){
+		NAO.holdsArmy = false; //water
+		NWG.holdsArmy = false;
+		BAR.holdsArmy = false;
+		NTH.holdsArmy = false;
+		GOB.holdsArmy = false;
+		IRE.holdsArmy = false;
+		HEL.holdsArmy = false;
+		SKA.holdsArmy = false;
+		BAL.holdsArmy = false;
+		MAO.holdsArmy = false;
+		GOL.holdsArmy = false;
+		ADR.holdsArmy = false;
+		BLA.holdsArmy = false;
+		WES.holdsArmy = false;
+		TYR.holdsArmy = false;
+		ION.holdsArmy = false;
+		AEG.holdsArmy = false;
+		EAS.holdsArmy = false; //water
+		Cly; //england
+		Edi;
+		Lvp;
+		Yor;
+		Wal;
+		Lon; //england
+		Nor; //norse
+		Swe;
+		Den; //norse
+		Fin; //russia
+		Stp;
+		Liv;
+		Mos;
+		War;
+		Ukr;
+		Sev; //russia
+		Arm; //turkey
+		Syr;
+		Smy;
+		Ank;
+		Con; //turkey
+		Bul; //balkan
+		Gre;
+		Alb;
+		Ser;
+		Rum; //balkan
+		Gal; //austria-hungary
+		Boh;
+		Tyr;
+		Vie;
+		Bud;
+		Tri; //austria-hungary
+		Ven; //italy
+		Apu;
+		Nap;
+		Rom;
+		Tus;
+		Pie; //italy
+		Tun; //mediteranean
+		Naf;
+		Por;
+		Spa; //mediteranean
+		Mar; //france
+		Gas;
+		Bur;
+		Par;
+		Bre;
+		Pic; //france
+		Bel; //low countries
+		Hol; //low countries
+		Ruh; //germany
+		Mun;
+		Sil;
+		Pru;
+		Ber;
+		Kie; //germany	
+	}
 };
 
 void printMap() 
