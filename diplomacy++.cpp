@@ -152,7 +152,8 @@ class board()
 	tile Kie; //germany
 
 	board(){
-		NAO.holdsArmy = false; //water
+		//sets up ocean and inland countries
+		NAO.holdsArmy = false;
 		NWG.holdsArmy = false;
 		BAR.holdsArmy = false;
 		NTH.holdsArmy = false;
@@ -169,63 +170,21 @@ class board()
 		TYR.holdsArmy = false;
 		ION.holdsArmy = false;
 		AEG.holdsArmy = false;
-		EAS.holdsArmy = false; //water
-		Cly; //england
-		Edi;
-		Lvp;
-		Yor;
-		Wal;
-		Lon; //england
-		Nor; //norse
-		Swe;
-		Den; //norse
-		Fin; //russia
-		Stp;
-		Liv;
-		Mos;
-		War;
-		Ukr;
-		Sev; //russia
-		Arm; //turkey
-		Syr;
-		Smy;
-		Ank;
-		Con; //turkey
-		Bul; //balkan
-		Gre;
-		Alb;
-		Ser;
-		Rum; //balkan
-		Gal; //austria-hungary
-		Boh;
-		Tyr;
-		Vie;
-		Bud;
-		Tri; //austria-hungary
-		Ven; //italy
-		Apu;
-		Nap;
-		Rom;
-		Tus;
-		Pie; //italy
-		Tun; //mediteranean
-		Naf;
-		Por;
-		Spa; //mediteranean
-		Mar; //france
-		Gas;
-		Bur;
-		Par;
-		Bre;
-		Pic; //france
-		Bel; //low countries
-		Hol; //low countries
-		Ruh; //germany
-		Mun;
-		Sil;
-		Pru;
-		Ber;
-		Kie; //germany	
+		EAS.holdsArmy = false;
+		Mos.holdsFleet = false;
+		War.holdsFleet = false;
+		Ukr.holdsFleet = false;
+		Ser.holdsFleet = false;
+		Gal.holdsFleet = false;
+		Boh.holdsFleet = false;
+		Tyr.holdsFleet = false;
+		Vie.holdsFleet = false;
+		Bud.holdsFleet = false;
+		Bur.holdsFleet = false;
+		Par.holdsFleet = false;
+		Ruh.holdsFleet = false;
+		Mun.holdsFleet = false;
+		Sil.holdsFleet = false;
 	}
 };
 
