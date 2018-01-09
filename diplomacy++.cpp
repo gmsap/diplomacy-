@@ -3,7 +3,18 @@
 #include <string>
 
 using namespace std;  
+/*
+struct tile
+{
+	char unitType = ' ';
+	char unitOwner = ' ';
+}
 
+struct board
+{
+	tile* tiles[]
+}
+*/
 void printMap() 
 {
 	string line;
