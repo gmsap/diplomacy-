@@ -4,8 +4,7 @@
 
 using namespace std;  
 
-struct tile
-{
+struct tile {
 public:
 	bool hasSupplyCenter;
 	bool holdsFleet;
@@ -14,8 +13,7 @@ public:
 	char unitOwner;			//character for the country
 	tile* neighbors[1];
 
-	tile(bool hasSupplyCenter = false, bool holdsFleet = true, bool holdsArmy = true, char unitType = ' ', char unitOwner = ' ')
-	{
+	tile(bool hasSupplyCenter = false, bool holdsFleet = true, bool holdsArmy = true, char unitType = ' ', char unitOwner = ' ') {
 		this->hasSupplyCenter = false;
 		this->holdsFleet = true;
 		this->holdsArmy = true;
@@ -25,8 +23,7 @@ public:
 	}
 };
 
-struct board
-{
+struct board {
 public:
 	tile* tiles[74];
 	tiles[0] = new tile("NAO"); //water
@@ -141,8 +138,7 @@ public:
 	};
 };
 
-void printMap() 
-{
+void printMap() {
 	string line;
 	ifstream myfile ("map.txt");
 	while (getline(myfile,line))
@@ -152,12 +148,10 @@ void printMap()
 	myfile.close();
 }
 
-int main()
-{
+int main() {
 	string input;
 	bool running = true;
-	while(running)
-	{
+	while(running) {
 		cout << endl << "enter a command (try help)" << endl;
 		cin >> input;
 		cout << endl;
