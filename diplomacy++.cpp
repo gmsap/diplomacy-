@@ -6,6 +6,7 @@ using namespace std;
 
 struct tile {
 public:
+	string name;
 	bool hasSupplyCenter;
 	bool holdsFleet;
 	bool holdsArmy;
@@ -13,7 +14,8 @@ public:
 	char unitOwner;			//character for the country
 	tile* neighbors[1];
 
-	tile(bool hasSupplyCenter = false, bool holdsFleet = true, bool holdsArmy = true, char unitType = ' ', char unitOwner = ' ') {
+	tile(string name) {
+		this->name = name;
 		this->hasSupplyCenter = false;
 		this->holdsFleet = true;
 		this->holdsArmy = true;
@@ -25,7 +27,7 @@ public:
 
 struct board {
 public:
-	tile* tiles[74];
+	tile tiles[74];
 	tiles[0] = new tile("NAO"); //water
 	tiles[1] = new tile("NWG");
 	tiles[2] = new tile("BAR");
@@ -101,7 +103,7 @@ public:
 	tiles[72] = new tile("Ber");
 	tiles[73] = new tile("Kie"); //germany
 
-	board(){
+/*	board(){
 		//sets up ocean and inland countries
 		NAO.holdsArmy = false;
 		NWG.holdsArmy = false;
@@ -135,7 +137,7 @@ public:
 		Ruh.holdsFleet = false;
 		Mun.holdsFleet = false;
 		Sil.holdsFleet = false;
-	};
+	};*/
 };
 
 void printMap() {
