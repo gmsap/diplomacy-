@@ -12,7 +12,7 @@ public:
 	bool holdsArmy;
 	char unitType;			//'A' is army, 'F' is fleet, ' ' is empty
 	char unitOwner;			//character for the country
-	tile* neighbors[];
+	tile* neighbors[1];
 
 	tile(bool hasSupplyCenter = false, bool holdsFleet = true, bool holdsArmy = true, char unitType = ' ', char unitOwner = ' ')
 	{
