@@ -4,7 +4,7 @@ using namespace std;
 
 board::board() {
         tile NAONeighbors[] =  {tiles[9], tiles[5], tiles[18], tiles[1]};
-        this->tiles[0] = *(new tile("NAO", false, false, false, "",'S', 4, NAONeighbors)); //North Atlantic Ocean
+        this->tiles[0] = *(new tile("NAO", false, false, false, '','S', 4, NAONeighbors)); //North Atlantic Ocean
 /*        this->tiles[1] = new tile("NWG");
         this->tiles[2] = new tile("BAR");
         this->tiles[3] = new tile("NTH");

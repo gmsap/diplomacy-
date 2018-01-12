@@ -8,7 +8,7 @@ public:
 	bool hasSupplyCenter;
 	bool holdsFleet;
 	bool holdsArmy;
-	string owner; //country to most recently own the territory
+	char owner; // first letter of the empire to most recently own the territory
     char tileType; //'L' for landlocked, 'C' for coastal, 'S' for sea
 	tile** neighbors; //an array of pointers to tiles
 
