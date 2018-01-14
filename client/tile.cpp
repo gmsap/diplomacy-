@@ -9,6 +9,7 @@ tile::tile() {
     this->owner = ' ';
     this->tileType = ' ';
     this->numNeighbors = 0;
+    this->neighbors = new tile*[0];
 }
 
 tile::tile(string name, bool hasSupplyCenter, bool holdsFleet, bool holdsArmy, char owner, char tileType, int numNeighbors, tile** neighbors) {
@@ -23,6 +24,10 @@ tile::tile(string name, bool hasSupplyCenter, bool holdsFleet, bool holdsArmy, c
     for (int i = 0; i < numNeighbors; i++) {
         this->neighbors[i] = neighbors[i];
     }
+}
+
+tile::~tile() {
+    delete[] this->neighbors;
 }
 
 std::ostream& operator<<(std::ostream& stream, const tile& t) {

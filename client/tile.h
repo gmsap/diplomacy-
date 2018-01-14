@@ -18,6 +18,7 @@ public:
 
     tile();
 	tile(string name, bool hasSupplyCenter, bool holdsFleet, bool holdsArmy, char owner, char tileType, int numNeighbors, tile** neighbors);
+    ~tile();
 
     friend ostream& operator<<(ostream& stream, const tile& t);
 };

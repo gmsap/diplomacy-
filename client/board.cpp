@@ -62,7 +62,7 @@ board::board(int numTiles) {
 }
 
 board::~board() {
-    for (int i = 0; i < this->numTiles; i++) { //46 is a magic number for number of tiles on a standard diplomacy map, this should by made a parameter in the future
+    for (int i = 0; i < this->numTiles; i++) {
         delete this->tiles[i]; 
     }
     delete[] this->tiles;
