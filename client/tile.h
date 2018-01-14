@@ -7,6 +7,7 @@ using namespace std;
 
 class tile {
 public:
+    string abb;
 	string name;
 	bool hasSupplyCenter;
 	bool holdsFleet;
@@ -17,8 +18,10 @@ public:
 	tile** neighbors; //an array of pointers to tiles
 
     tile();
-	tile(string name, bool hasSupplyCenter, bool holdsFleet, bool holdsArmy, char owner, char tileType, int numNeighbors, tile** neighbors);
     ~tile();
+	void init(string abb, string name, bool hasSupplyCenter, bool holdsFleet, bool holdsArmy, char owner, char tileType, int numNeighbors);
+    void arrInit(tile** neighbors);
+    string dump();
 
     friend ostream& operator<<(ostream& stream, const tile& t);
 };

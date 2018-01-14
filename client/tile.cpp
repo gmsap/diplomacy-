@@ -2,6 +2,7 @@
 
 
 tile::tile() {
+    this->abb = "";
     this->name = "";
     this->hasSupplyCenter = false;
     this->holdsFleet = false;
@@ -12,7 +13,8 @@ tile::tile() {
     this->neighbors = new tile*[0];
 }
 
-tile::tile(string name, bool hasSupplyCenter, bool holdsFleet, bool holdsArmy, char owner, char tileType, int numNeighbors, tile** neighbors) {
+void tile::init(string abb, string name, bool hasSupplyCenter, bool holdsFleet, bool holdsArmy, char owner, char tileType, int numNeighbors) {
+    this->abb = abb; 
     this->name = name;
     this->hasSupplyCenter = hasSupplyCenter;
     this->holdsFleet = holdsFleet;
@@ -21,6 +23,9 @@ tile::tile(string name, bool hasSupplyCenter, bool holdsFleet, bool holdsArmy, c
     this->tileType = tileType;
     this->numNeighbors = numNeighbors;
     this->neighbors = new tile*[numNeighbors];
+}
+
+void tile::arrInit(tile** neighbors) {
     for (int i = 0; i < numNeighbors; i++) {
         this->neighbors[i] = neighbors[i];
     }
@@ -31,11 +36,22 @@ tile::~tile() {
 }
 
 std::ostream& operator<<(std::ostream& stream, const tile& t) {
-    std::cout << "tile[name=" << t.name << ", hasSupplyCenter=" << t.hasSupplyCenter << ", holdsFleet=" << t.holdsFleet << ", holdsArmy=" << t.holdsArmy << ", owner=" << t.owner << ", tileType=" << t.tileType << ", numNeighbors=" << t.numNeighbors << ", neighbors=[";
+    stream << "tile[abb=" << t.abb << ", name=" << t.name << ", hasSupplyCenter=" << t.hasSupplyCenter << ", holdsFleet=" << t.holdsFleet << ", holdsArmy=" << t.holdsArmy << ", owner=" << t.owner << ", tileType=" << t.tileType << ", numNeighbors=" << t.numNeighbors << ", neighbors=[";
     for (int i = 0; i < t.numNeighbors; i++) {
-        std::cout << t.neighbors[i]->name;
-        if (i != t.numNeighbors - 1) std::cout << ", ";
+        stream << t.neighbors[i]->abb;
+        if (i != t.numNeighbors - 1) stream << ", ";
     }
-    std::cout << "}}" << std::endl;
+    stream << "]}";
     return stream;
+}
+
+std::string tile::dump() {
+    using namespace std;
+    string d = "";
+    d += abb + " " + name + " " + to_string(hasSupplyCenter) + " " + to_string(holdsFleet) + " " + to_string(holdsArmy) + " " + char(owner) + " " + char(tileType) + " " + to_string(numNeighbors) + " ";
+    for (int i = 0; i < numNeighbors; i++) {
+        d += neighbors[i]->abb;
+        if (i != numNeighbors - 1) d += " ";
+    }
+    return d;
 }

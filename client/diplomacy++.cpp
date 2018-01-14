@@ -18,7 +18,7 @@ void printMap() {
 int main() {
 	string input;
 	bool running = true;
-    board* b = new board(46);
+    board* b = new board(76);
 	while(running) {
 		cout << endl << "enter a command (try help)" << endl;
 		cin >> input;

@@ -10,6 +10,8 @@ class board {
 
     board(int);
     ~board();
+
+    tile* find(std::string abb);
 };
 
 #endif
