@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "board.h"
 
 using namespace std;  
 
@@ -17,6 +18,7 @@ void printMap() {
 int main() {
 	string input;
 	bool running = true;
+    board* b = new board(46);
 	while(running) {
 		cout << endl << "enter a command (try help)" << endl;
 		cin >> input;
@@ -30,6 +32,7 @@ int main() {
 			printMap();
 		} else if(input == "exit") {
 			running = false;
+            delete b;
 			cout << "closing diplomacy++" << endl;
 		} else { 
             std::cout << "command not recognized" << endl;
